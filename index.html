@@ -1,0 +1,549 @@
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Shaharia V4</title> 
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: conic-gradient(from 45deg,#8f00ff88, #7054ff, #65ffed,#0003ff,#40ff63,#8f00ff,#fffc15);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .password-form {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    color: white;
+    width: 250px;
+    backdrop-filter: blur(1.5px);
+    animation: slideInForm 1s ease forwards;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  @keyframes slideInForm {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  
+  .password-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 2px black;
+    animation: shadowAnimation 15.00001s linear infinite;
+    pointer-events: none;
+  }
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #eaeaff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    background: transparent;
+    color: white;
+    outline: none;
+  }    
+  input[type="password"]:focus {
+    border-color: white;
+    animation: shake 0.5s ease;
+  }
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: true;
+    border-color: white;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    background: transparent ;
+    padding: 10px;
+    color: red;
+    border-color: #7b2bff;
+  }
+  h2 {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+    padding: 20px;
+    width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .7);
+    margin-top: 17px;
+    display: none;
+    animation: fadeInTable 1s ease forwards;
+    border-color: #eaffff9e;
+    backdrop-filter: blur(1.9px);
+  }
+  @keyframes fadeInTable {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .slide-in-left {
+  animation: slideInLeft 1s ease-in-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.bounce {
+  animation: bounce 1s ease forwards;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
+  th, td {
+    padding: 6px;
+    text-align: center;
+  }
+  tr {
+    padding: 20px;
+  }
+  th {
+    background: transparent;
+    color:white;
+    backdrop-filter: blur(0px);
+  }
+  td {
+    background-color: transparent ;
+  }
+  tr:hover td {
+    background: transparent ;
+    transform: scale(1.35);
+    transition: transform 0.5s ease;
+    border-collapse: 10px ;
+    border-padding: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.5s ease;
+    
+  }
+  a:hover {
+    color: white;
+    transition: transform 0.5s ease;
+  }
+  
+  #chip-s-v4 {
+  border-collapse: collapse;
+  background: transparent ;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .7);
+  margin-top: 17px;
+  display: none;
+  animation: fadeInTable 1s ease forwards;
+  border-color: #eaffff9e;
+}
+
+#chip-s-v4 th, #chip-s-v4 td {
+  padding: 6px;
+  text-align: center;
+  background: transparent;
+  backdrop-filter: blur(0px);
+}
+
+#chip-s-v4 tr {
+  padding: 5px;
+}
+
+#chip-s-v4 th {
+  background: transparent;
+  background-color: transparent;
+  color: white;
+  backdrop-filter: blur(0px);
+}
+
+#chip-s-v4 td {
+  background-color: transparent ;
+  backdrop-filter: blur(px);
+}
+
+#chip-s-v4 tr:hover td {
+  background: transparent;
+  transform: scale(1.07);
+  transition: transform 0.5s ease;
+  border-collapse: 1px ;
+  border-padding: 7px;
+  color: white;
+  padding: 7;
+}
+
+#chip-s-v4 a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+#chip-s-v4 a:hover {
+  color: white;
+  transition: transform 0.1s ease;
+}
+
+#chip-collection {
+  border-collapse: collapse;
+  padding: 30px;
+  width: 300px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .7);
+  margin-top: 17px;
+  display: none;
+  animation:  slideInLeft 1s ease forwards;
+  border-color: #eaffff9e;
+}
+
+#chip-collection th, #chip-collection td {
+  padding: 8px;
+  text-align: center;
+  background: transparent;
+  backdrop-filter: blur(0px);
+}
+
+#chip-collection tr {
+  padding: 20px;
+}
+
+#chip-collection th {
+  background: transparent;
+  background-color: transparent;
+  color: ;
+  backdrop-filter: blur(00px);
+}
+
+#chip-collection td {
+  background-color: ;
+  text-color: black;
+}
+
+#chip-collection tr:hover td {
+  background: transparent;
+  transform: scale(1.15);
+  transition: transform 0.3s ease;
+  border-collapse: 0px ;
+  border-padding: 1px;
+  color: black;
+  padding: 15px;
+  animation: bounce 0.s ease
+}
+
+#chip-collection a {
+  text-decoration: none;
+  color:;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  animation: fadeInTable 0.5s ease
+}
+
+#chip-collection a:hover {
+  transition: transform 1s ease;
+  animation: fadeInTable 0.5s ease
+}
+
+
+
+body {
+    background-image: url('wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+</style> 
+ </head> 
+ <body> 
+  <div class="password-form"> 
+   <h2 class="w">Welcome</h2> 
+   <p style="text-align: center;">Please enter the password to access the site.</p> 
+   <input type="password" id="password" placeholder="Enter Password" onkeydown="if(event.keyCode==13) checkPassword()"> 
+   <button onclick="checkPassword()">Submit</button> 
+  </div> 
+  <table id="chip-collection" align="center" border="13"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Chips Collection</th> 
+    </tr> 
+    <tr> 
+     <td><a href="#" onclick="showChip('chip-s-v1')">1. Chip S-v1</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#" onclick="showChip('chip-s-v2')">2. Chip S-v2</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#" onclick="showChip('chip-s-v3')">3. Chip S-v3</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#" onclick="showSpecialInterface()">4. Chip S-v4</a></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="chip-s-v1" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Chip S-v1</th> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/15MfM3-tUnoffl8r0lYEFMmFSMEnANSyA">Chip v1-i</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1FnoxFMOitiy4uM4_bYdllIUsvVVUIqPQ">Chip v1-ii</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1xgxwgAM5jaGrrwMldeLIOTPVD4waSXZn">Chip v1-iii</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1EQ26nf6-1tLiQDf31upjEvXNfp5f7ULY">Chip v1-iv</a></td> 
+    </tr> 
+    <tr> 
+     <td colspan="2"><button onclick="goBackToChips()">Previous</button></td> 
+     <!-- Added Previous button --> 
+    </tr> 
+   </tbody>
+  </table> 
+  <script>
+function goBackToChips() {
+  document.getElementById('chip-s-v1').style.display = 'none'; // Hide the current subsection table
+  document.getElementById('chip-collection').style.display = 'table'; // Display the main chip collection table
+}
+</script> 
+  <table id="chip-s-v2" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Chip S-v2</th> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1QxNvuUOPQK2LSIecW3VjFjiz2A7wWcOM">Chip v2-v</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1S9hgj5ZUqSsifSun3N7sPIy9d5aoxxMM">Chip v2-vi</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1FKb4hE8VBDCStwxXGiI-YLILOTI6phTR">Chip v2-vii</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1GoFA7Uc9VOERQs7bFpvVJOViipaXmeW2">Chip v2-viii</a></td> 
+    </tr> 
+    <tr> 
+     <td colspan="2"><button onclick="showChip('chip-collection')">Previous</button></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="chip-s-v3" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">chip-s-v3</th> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1GRA8EZsVhda73AOSqSBZmHPW5iobSg_l">Chip v3-ix</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1HP2StdvckauWSDxjHuYe9QySjJGQ37k8">Chip v3-x</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">No Data </a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://drive.google.com/drive/folders/1nVealbZ4nnS-enT27llogkuduI8vfNfC?usp=sharing">Public</a></td> 
+    </tr> 
+    <tr> 
+     <td colspan="2"><button onclick="showChip('chip-collection')">Previous</button></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="chip-s-v4" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Chip S-v4</th> 
+    </tr> 
+    <tr> 
+     <td colspan="2"> <button onclick="showInterface('interface1')">Apks</button> <button onclick="showInterface('interface2')">Games</button> <button onclick="showInterface('interface3')">Movies</button> </td> 
+    </tr> 
+    <tr> 
+     <td colspan="2"><button onclick="showChip('chip-collection')">Previous</button></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="interface1" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Apks</th> 
+    </tr> 
+    <tr> 
+     <td><a href="https://github.com/revancedapps/revanced.net/releases/download/2024-14/revanced.net_revanced_youtube_v19.09.37_cli4.6.0_p4.6.1.1.apk">Youtube</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://github.com/revancedapps/revanced.net/releases/download/2024-13/revanced.net_revanced_gms_microg_v0.3.1.3.240913.apk">MicroG</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="https://archive.newpipe.net/fdroid/repo/NewPipe_v0.26.1.apk">Newpipe</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 4</a></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="interface2" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Games</th> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 1</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 2</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 3</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 4</a></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table id="interface3" align="center" border="13" style="display: none;"> 
+   <tbody>
+    <tr> 
+     <th colspan="2">Movies</th> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 1</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 1</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 1</a></td> 
+    </tr> 
+    <tr> 
+     <td><a href="#">Example Link 4</a></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <script>
+    // Disable right-click
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+}, false);
+
+// Disable shortcut keys
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey || e.keyCode === 123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
+
+function checkPassword() {
+  const passwordInput = document.getElementById('password').value;
+  if (passwordInput === 'abir.enter') {
+    document.querySelector('.password-form').style.display = 'none';
+    document.getElementById('chip-collection').style.display = 'table';
+    document.body.style.paddingBottom = '20px';
+  } else {
+    alert('Incorrect password. Please try again.');
+    document.getElementById('password').value = '';
+  }
+}
+
+function showChip(chipId) {
+  const chipTables = document.querySelectorAll('table[id^="chip-"]');
+  chipTables.forEach(function(table) {
+    table.style.display = 'none';
+  });
+  document.getElementById(chipId).style.display = 'table';
+}
+
+function showSpecialInterface() {
+  const chipTables = document.querySelectorAll('table[id^="chip-"]');
+  chipTables.forEach(function(table) {
+    table.style.display = 'none';
+  });
+  document.getElementById('chip-s-v4').style.display = 'table';
+}
+
+function showInterface(interfaceId) {
+  const interfaces = document.querySelectorAll('table[id^="interface"]');
+  interfaces.forEach(function(interfaceTable) {
+    interfaceTable.style.display = 'none';
+  });
+  document.getElementById(interfaceId).style.display = 'table';
+}
+
+</script> 
+ </body>
+</html>
